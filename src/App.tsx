@@ -394,62 +394,73 @@ function Hero({ t }: { t: T }) {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-950 pt-16"
+      className="min-h-screen flex items-center relative overflow-hidden bg-gray-950 pt-16"
     >
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-violet-700/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-cyan-700/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <div className="mx-auto mb-8 w-32 h-32 rounded-full ring-4 ring-violet-500/50 overflow-hidden bg-gray-800">
-          <img src="/images/profile.jpeg" alt="Biziyaremye Alphonse" className="w-full h-full object-cover" />
-        </div>
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
-        <p className="text-violet-400 font-medium tracking-widest uppercase text-sm mb-3">
-          {t.heroGreeting}
-        </p>
-        <h1 className="text-5xl sm:text-7xl font-extrabold text-white mb-4 leading-tight">
-          Biziyaremye{' '}
-          <span className="bg-linear-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
-            Alphonse
-          </span>
-        </h1>
-        <p className="text-xl sm:text-2xl text-gray-300 font-light mb-2">{t.heroRole}</p>
-        <p className="text-gray-500 mb-10 text-base sm:text-lg">{t.heroSince}</p>
+          {/* ── Left: big profile photo ── */}
+          <div className="shrink-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-[420px] lg:h-[420px] rounded-3xl ring-4 ring-violet-500/40 overflow-hidden bg-gray-800 shadow-2xl shadow-violet-900/30">
+            <img
+              src="/images/profile.jpeg"
+              alt="Biziyaremye Alphonse"
+              className="w-full h-full object-cover"
+            />
+          </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
-          <a
-            href="#projects"
-            onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }) }}
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-violet-600 hover:bg-violet-500 text-white font-medium transition-colors duration-200"
-          >
-            {t.heroViewWork} <ArrowRight size={18} />
-          </a>
-          <a
-            href="#contact"
-            onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-full border border-gray-600 hover:border-violet-400 text-gray-300 hover:text-violet-400 font-medium transition-colors duration-200"
-          >
-            {t.heroContact}
-          </a>
-        </div>
+          {/* ── Right: text content ── */}
+          <div className="flex-1 text-center lg:text-left">
+            <p className="text-violet-400 font-medium tracking-widest uppercase text-sm mb-3">
+              {t.heroGreeting}
+            </p>
+            <h1 className="text-5xl sm:text-6xl xl:text-7xl font-extrabold text-white mb-4 leading-tight">
+              Biziyaremye{' '}
+              <span className="bg-linear-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+                Alphonse
+              </span>
+            </h1>
+            <p className="text-xl sm:text-2xl text-gray-300 font-light mb-2">{t.heroRole}</p>
+            <p className="text-gray-500 mb-10 text-base sm:text-lg">{t.heroSince}</p>
 
-        <div className="flex items-center justify-center gap-5">
-          {[
-            { icon: <Github size={20} />, href: 'https://github.com/mabab2000', label: 'GitHub' },
-            { icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/alphonse-biziyaremye-6b55152a2/', label: 'LinkedIn' },
-            { icon: <XIcon size={20} />, href: 'https://x.com/Bi_Mababa', label: 'X' },
-            { icon: <Mail size={20} />, href: 'mailto:biziyaremyealphonse@gmail.com', label: 'Email' },
-          ].map(({ icon, href, label }) => (
-            <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-              className="w-10 h-10 rounded-full border border-gray-700 hover:border-violet-400 flex items-center justify-center text-gray-400 hover:text-violet-400 transition-colors duration-200">
-              {icon}
-            </a>
-          ))}
-        </div>
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10">
+              <a
+                href="#projects"
+                onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }) }}
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-violet-600 hover:bg-violet-500 text-white font-medium transition-colors duration-200"
+              >
+                {t.heroViewWork} <ArrowRight size={18} />
+              </a>
+              <a
+                href="#contact"
+                onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-full border border-gray-600 hover:border-violet-400 text-gray-300 hover:text-violet-400 font-medium transition-colors duration-200"
+              >
+                {t.heroContact}
+              </a>
+            </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-gray-600">
-          <ChevronDown size={28} />
+            <div className="flex items-center justify-center lg:justify-start gap-4">
+              {[
+                { icon: <Github size={20} />, href: 'https://github.com/mabab2000', label: 'GitHub' },
+                { icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/alphonse-biziyaremye-6b55152a2/', label: 'LinkedIn' },
+                { icon: <XIcon size={20} />, href: 'https://x.com/Bi_Mababa', label: 'X' },
+                { icon: <Mail size={20} />, href: 'mailto:biziyaremyealphonse@gmail.com', label: 'Email' },
+              ].map(({ icon, href, label }) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
+                  className="w-11 h-11 rounded-full border border-gray-700 hover:border-violet-400 flex items-center justify-center text-gray-400 hover:text-violet-400 transition-colors duration-200">
+                  {icon}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-gray-600">
+        <ChevronDown size={28} />
       </div>
     </section>
   )
